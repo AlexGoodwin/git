@@ -627,7 +627,8 @@ int path_inside_repo(const char *prefix, const char *path);
 #define INIT_DB_EXIST_OK 0x0002
 
 int init_db(const char *git_dir, const char *real_git_dir,
-	    const char *template_dir, unsigned int flags);
+	    const char *template_dir, const char *ref_storage_format,
+	    unsigned int flags);
 
 void sanitize_stdfds(void);
 int daemonize(void);
@@ -1041,6 +1042,7 @@ struct repository_format {
 	int is_bare;
 	int hash_algo;
 	char *work_tree;
+	char *ref_storage;
 	struct string_list unknown_extensions;
 };
 

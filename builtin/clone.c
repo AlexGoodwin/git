@@ -1097,7 +1097,9 @@ int cmd_clone(int argc, const char **argv, const char *prefix)
 		}
 	}
 
-	init_db(git_dir, real_git_dir, option_template, INIT_DB_QUIET);
+	init_db(git_dir, real_git_dir, option_template,
+		DEFAULT_REF_STORAGE, /* XXX */
+		INIT_DB_QUIET);
 
 	if (real_git_dir)
 		git_dir = real_git_dir;
